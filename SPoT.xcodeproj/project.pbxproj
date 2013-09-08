@@ -17,6 +17,11 @@
 		275EF79517DA3EC200F7B0AC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 275EF79417DA3EC200F7B0AC /* Default@2x.png */; };
 		275EF79717DA3EC200F7B0AC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 275EF79617DA3EC200F7B0AC /* Default-568h@2x.png */; };
 		275EF79A17DA3EC200F7B0AC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275EF79817DA3EC200F7B0AC /* MainStoryboard.storyboard */; };
+		275EF7A717DA439000F7B0AC /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 275EF7A617DA439000F7B0AC /* FlickrFetcher.m */; };
+		275EF7AA17DA51E900F7B0AC /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275EF7A917DA51E900F7B0AC /* ImageScrollViewController.m */; };
+		275EF7B017DA59AF00F7B0AC /* FlickrPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275EF7AF17DA59AF00F7B0AC /* FlickrPhotosTableViewController.m */; };
+		275EF7B317DA608500F7B0AC /* FlickrTagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275EF7B217DA608500F7B0AC /* FlickrTagsTableViewController.m */; };
+		275EF7B617DBB20D00F7B0AC /* RecentFlickrPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275EF7B517DBB20D00F7B0AC /* RecentFlickrPhotosTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,17 @@
 		275EF79417DA3EC200F7B0AC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		275EF79617DA3EC200F7B0AC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		275EF79917DA3EC200F7B0AC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		275EF7A417DA439000F7B0AC /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		275EF7A517DA439000F7B0AC /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		275EF7A617DA439000F7B0AC /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		275EF7A817DA51E900F7B0AC /* ImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollViewController.h; sourceTree = "<group>"; };
+		275EF7A917DA51E900F7B0AC /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
+		275EF7AE17DA59AF00F7B0AC /* FlickrPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotosTableViewController.h; sourceTree = "<group>"; };
+		275EF7AF17DA59AF00F7B0AC /* FlickrPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotosTableViewController.m; sourceTree = "<group>"; };
+		275EF7B117DA608500F7B0AC /* FlickrTagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrTagsTableViewController.h; sourceTree = "<group>"; };
+		275EF7B217DA608500F7B0AC /* FlickrTagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrTagsTableViewController.m; sourceTree = "<group>"; };
+		275EF7B417DBB20D00F7B0AC /* RecentFlickrPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFlickrPhotosTableViewController.h; sourceTree = "<group>"; };
+		275EF7B517DBB20D00F7B0AC /* RecentFlickrPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentFlickrPhotosTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +97,15 @@
 			isa = PBXGroup;
 			children = (
 				275EF79817DA3EC200F7B0AC /* MainStoryboard.storyboard */,
+				275EF7A817DA51E900F7B0AC /* ImageScrollViewController.h */,
+				275EF7A917DA51E900F7B0AC /* ImageScrollViewController.m */,
+				275EF7AE17DA59AF00F7B0AC /* FlickrPhotosTableViewController.h */,
+				275EF7AF17DA59AF00F7B0AC /* FlickrPhotosTableViewController.m */,
+				275EF7B417DBB20D00F7B0AC /* RecentFlickrPhotosTableViewController.h */,
+				275EF7B517DBB20D00F7B0AC /* RecentFlickrPhotosTableViewController.m */,
+				275EF7B117DA608500F7B0AC /* FlickrTagsTableViewController.h */,
+				275EF7B217DA608500F7B0AC /* FlickrTagsTableViewController.m */,
+				275EF7A317DA439000F7B0AC /* FlickrFetcher */,
 				275EF78717DA3EC200F7B0AC /* Supporting Files */,
 			);
 			path = SPoT;
@@ -100,6 +125,16 @@
 				275EF79617DA3EC200F7B0AC /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		275EF7A317DA439000F7B0AC /* FlickrFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				275EF7A417DA439000F7B0AC /* FlickrAPIKey.h */,
+				275EF7A517DA439000F7B0AC /* FlickrFetcher.h */,
+				275EF7A617DA439000F7B0AC /* FlickrFetcher.m */,
+			);
+			path = FlickrFetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +205,11 @@
 			files = (
 				275EF78D17DA3EC200F7B0AC /* main.m in Sources */,
 				275EF79117DA3EC200F7B0AC /* AppDelegate.m in Sources */,
+				275EF7A717DA439000F7B0AC /* FlickrFetcher.m in Sources */,
+				275EF7AA17DA51E900F7B0AC /* ImageScrollViewController.m in Sources */,
+				275EF7B017DA59AF00F7B0AC /* FlickrPhotosTableViewController.m in Sources */,
+				275EF7B317DA608500F7B0AC /* FlickrTagsTableViewController.m in Sources */,
+				275EF7B617DBB20D00F7B0AC /* RecentFlickrPhotosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +332,7 @@
 				275EF7A217DA3EC200F7B0AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
