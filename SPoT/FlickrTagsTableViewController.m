@@ -39,7 +39,7 @@
 }
 
 - (void)setTags:(NSArray *)tags {
-	_tags = tags;
+	_tags = [tags sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 	if (self.photosByTag) [self.tableView reloadData];
 }
 
