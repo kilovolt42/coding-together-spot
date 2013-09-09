@@ -9,7 +9,7 @@
 #import "FlickrPhotosTableViewController.h"
 #import "FlickrFetcher.h"
 
-@interface FlickrPhotosTableViewController ()
+@interface FlickrPhotosTableViewController () <UISplitViewControllerDelegate>
 
 @end
 
@@ -18,8 +18,16 @@
 
 @implementation FlickrPhotosTableViewController
 
+- (BOOL)sortPhotos {
+	return YES;
+}
+
 - (void)setPhotos:(NSArray *)photos {
-	_photos = [photos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:FLICKR_PHOTO_TITLE ascending:YES]]];
+	if (self.sortPhotos) {
+		_photos = [photos sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:FLICKR_PHOTO_TITLE ascending:YES]]];
+	} else {
+		_photos = photos;
+	}
 	[self.tableView reloadData];
 }
 
@@ -43,6 +51,31 @@
 				}
 			}
 		}
+	}
+}
+
+#pragma mark - Split view delegate
+
+- (void)awakeFromNib {
+	self.splitViewController.delegate = self;
+}
+
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+	return UIInterfaceOrientationIsPortrait(orientation);
+}
+
+- (void)splitViewController:(UISplitViewController *)sender willHideViewController:(UIViewController *)master withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popover {
+	barButtonItem.title = @"Photos";
+	id detailViewController = [self.splitViewController.viewControllers lastObject];
+	if ([detailViewController respondsToSelector:@selector(setSplitViewBarButton:)]) {
+		[detailViewController performSelector:@selector(setSplitViewBarButton:) withObject:barButtonItem];
+	}
+}
+
+- (void)splitViewController:(UISplitViewController *)sender willShowViewController:(UIViewController *)master invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+	id detailViewController = [self.splitViewController.viewControllers lastObject];
+	if ([detailViewController respondsToSelector:@selector(setSplitViewBarButton:)]) {
+		[detailViewController performSelector:@selector(setSplitViewBarButton:) withObject:nil];
 	}
 }
 

@@ -16,6 +16,10 @@
 
 @implementation RecentFlickrPhotosTableViewController
 
+- (BOOL)sortPhotos {
+	return NO;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	self.photos = [[NSUserDefaults standardUserDefaults] arrayForKey:DEFAULTS_RECENT_PHOTOS];

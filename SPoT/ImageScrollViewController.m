@@ -12,12 +12,19 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
 @property (nonatomic) BOOL userZoomed;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
 @end
 
 #define MINIMUM_ZOOM_SCALE 0.2
 #define MAXIMUM_ZOOM_SCALE 2.0
 
 @implementation ImageScrollViewController
+
+- (void)setTitle:(NSString *)title {
+	[super setTitle:title];
+	if (title) self.titleBarButtonItem.title = title;
+}
 
 - (void)setImageURL:(NSURL *)imageURL {
 	_imageURL = imageURL;
@@ -73,6 +80,7 @@
 	self.scrollView.maximumZoomScale = MAXIMUM_ZOOM_SCALE;
 	self.userZoomed = NO;
 	[self reloadImage];
+	if (self.title) self.titleBarButtonItem.title = self.title;
 }
 
 - (void)viewDidLayoutSubviews {
