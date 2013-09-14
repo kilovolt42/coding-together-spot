@@ -45,7 +45,9 @@
 			NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
 			if (indexPath) {
 				if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
-					NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
+					FlickrPhotoFormat format = FlickrPhotoFormatLarge;
+					if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) format = FlickrPhotoFormatOriginal;
+					NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:format];
 					[segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
 					[segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
 				}

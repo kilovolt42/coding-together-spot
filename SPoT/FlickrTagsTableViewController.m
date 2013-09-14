@@ -8,6 +8,7 @@
 
 #import "FlickrTagsTableViewController.h"
 #import "FlickrFetcher.h"
+#import "IndicatorActivator.h"
 
 @interface FlickrTagsTableViewController ()
 
@@ -16,26 +17,40 @@
 @implementation FlickrTagsTableViewController
 
 - (void)viewDidLoad {
-	NSArray *standfordPhotos = [FlickrFetcher stanfordPhotos];
-	NSMutableSet *tags = [[NSMutableSet alloc] init];
-	NSMutableDictionary *photosByTag = [[NSMutableDictionary alloc] init];
-	
-	for (NSDictionary *photo in standfordPhotos) {
-		NSArray *tagsForPhoto = [photo[FLICKR_TAGS] componentsSeparatedByString:@" "];
-		for (NSString *tag in tagsForPhoto) {
-			if ([tag isEqualToString:@"cs193pspot"] || [tag isEqualToString:@"portrait"] || [tag isEqualToString:@"landscape"]) continue;
-			[tags addObject:tag];
-			NSMutableArray *photos = photosByTag[tag];
-			if (!photos) {
-				photos = [NSMutableArray array];
-				[photosByTag setValue:photos forKey:tag];
+	[self loadLatestPhotosFromFlickr];
+	[self.refreshControl addTarget:self action:@selector(loadLatestPhotosFromFlickr) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)loadLatestPhotosFromFlickr {
+	[self.refreshControl beginRefreshing];
+	dispatch_queue_t downloadQueue = dispatch_queue_create("image collection download queue", NULL);
+	dispatch_async(downloadQueue, ^{
+		[IndicatorActivator activate];
+		NSArray *standfordPhotos = [FlickrFetcher stanfordPhotos];
+		[IndicatorActivator deactivate];
+		NSMutableSet *tags = [[NSMutableSet alloc] init];
+		NSMutableDictionary *photosByTag = [[NSMutableDictionary alloc] init];
+		
+		for (NSDictionary *photo in standfordPhotos) {
+			NSArray *tagsForPhoto = [photo[FLICKR_TAGS] componentsSeparatedByString:@" "];
+			for (NSString *tag in tagsForPhoto) {
+				if ([tag isEqualToString:@"cs193pspot"] || [tag isEqualToString:@"portrait"] || [tag isEqualToString:@"landscape"]) continue;
+				[tags addObject:tag];
+				NSMutableArray *photos = photosByTag[tag];
+				if (!photos) {
+					photos = [NSMutableArray array];
+					[photosByTag setValue:photos forKey:tag];
+				}
+				[photos addObject:photo];
 			}
-			[photos addObject:photo];
 		}
-	}
-	
-	self.tags = [tags allObjects];
-	self.photosByTag = [photosByTag copy];
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			self.tags = [tags allObjects];
+			self.photosByTag = [photosByTag copy];
+			[self.refreshControl endRefreshing];
+		});
+	});
 }
 
 - (void)setTags:(NSArray *)tags {

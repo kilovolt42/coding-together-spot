@@ -36,3 +36,7 @@ Icon
 # Project files
 
 /SPoT/FlickrFetcher/FlickrAPIKey.h
+
+# Vim
+
+*.un~

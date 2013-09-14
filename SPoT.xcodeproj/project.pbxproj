@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270F13CD17E48C4E00E785C7 /* IndicatorActivator.m in Sources */ = {isa = PBXBuildFile; fileRef = 270F13CC17E48C4E00E785C7 /* IndicatorActivator.m */; };
 		275EF78117DA3EC200F7B0AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275EF78017DA3EC200F7B0AC /* UIKit.framework */; };
 		275EF78317DA3EC200F7B0AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275EF78217DA3EC200F7B0AC /* Foundation.framework */; };
 		275EF78517DA3EC200F7B0AC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 275EF78417DA3EC200F7B0AC /* CoreGraphics.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270F13CB17E48C4E00E785C7 /* IndicatorActivator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndicatorActivator.h; sourceTree = "<group>"; };
+		270F13CC17E48C4E00E785C7 /* IndicatorActivator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndicatorActivator.m; sourceTree = "<group>"; };
 		275EF77D17DA3EC200F7B0AC /* SPoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275EF78017DA3EC200F7B0AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		275EF78217DA3EC200F7B0AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +103,8 @@
 			children = (
 				275EF79817DA3EC200F7B0AC /* iPhone.storyboard */,
 				275EF7B717DE3A5800F7B0AC /* iPad.storyboard */,
+				270F13CB17E48C4E00E785C7 /* IndicatorActivator.h */,
+				270F13CC17E48C4E00E785C7 /* IndicatorActivator.m */,
 				275EF7A817DA51E900F7B0AC /* ImageScrollViewController.h */,
 				275EF7A917DA51E900F7B0AC /* ImageScrollViewController.m */,
 				275EF7AE17DA59AF00F7B0AC /* FlickrPhotosTableViewController.h */,
@@ -214,6 +219,7 @@
 				275EF7B017DA59AF00F7B0AC /* FlickrPhotosTableViewController.m in Sources */,
 				275EF7B317DA608500F7B0AC /* FlickrTagsTableViewController.m in Sources */,
 				275EF7B617DBB20D00F7B0AC /* RecentFlickrPhotosTableViewController.m in Sources */,
+				270F13CD17E48C4E00E785C7 /* IndicatorActivator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
