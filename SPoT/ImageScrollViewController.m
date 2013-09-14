@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) UIBarButtonItem *splitViewBarButtonItem;
 @end
 
 #define MINIMUM_ZOOM_SCALE 0.2
@@ -31,6 +32,17 @@
 - (void)setImageURL:(NSURL *)imageURL {
 	_imageURL = imageURL;
 	[self reloadImage];
+}
+
+@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
+
+- (void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem {
+	UIToolbar *toolbar = self.toolbar;
+	NSMutableArray *toolbarItems = [toolbar.items mutableCopy];
+	if (_splitViewBarButtonItem) [toolbarItems removeObject:_splitViewBarButtonItem];
+	if (splitViewBarButtonItem) [toolbarItems insertObject:splitViewBarButtonItem atIndex:0];
+	toolbar.items = toolbarItems;
+	_splitViewBarButtonItem = splitViewBarButtonItem;
 }
 
 - (void)reloadImage {
@@ -93,6 +105,12 @@
 	self.scrollView.maximumZoomScale = MAXIMUM_ZOOM_SCALE;
 	[self reloadImage];
 	if (self.title) self.titleBarButtonItem.title = self.title;
+	
+	if (self.splitViewBarButtonItem) {
+		NSMutableArray *toolBarItems = [self.toolbar.items mutableCopy];
+		[toolBarItems insertObject:self.splitViewBarButtonItem atIndex:0];
+		self.toolbar.items = toolBarItems;
+	}
 }
 
 - (void)viewDidLayoutSubviews {
